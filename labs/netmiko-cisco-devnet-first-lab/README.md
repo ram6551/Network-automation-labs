@@ -186,3 +186,42 @@ how Netmiko works
 how dictionaries store device details
 how lists store multiple commands
 how automation reduces manual work
+
+
+Adding loopback interface to a router
+---
+
+## 🔧 Configuration Automation
+
+After verifying basic connectivity, I automated configuration changes using Python and Netmiko.
+
+### Task
+
+- Create loopback interface
+- Assign IP address
+
+### Commands Used
+
+```python
+config_commands = [
+    "interface loopback20",
+    "ip address 20.20.20.1 255.255.255.255"
+]
+Explanation
+
+Instead of manually entering configuration mode and typing commands, I used Netmiko's send_config_set() method.
+
+This method:
+
+automatically enters configuration mode
+sends commands one by one
+exits configuration mode
+Outcome
+
+The loopback interface was successfully created using automation.
+
+I verified it by logging into the router and running:
+
+show ip interface brief
+
+This confirmed that automation works exactly the same as manual configuration.
